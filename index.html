@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="css/app.css">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>ENOT</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <meta name="author" content="Maksim Bobrin">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <base target="_blank">
+    <!-- 
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon/favicon-16x16.png"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center title publication-title">
+                <span style="font-size:42px;">🦝</span><span class="text-gradient">ENOT</span> : <br>
+                <!-- <i class="fa-solid fa-bolt" style="color: #eede64;"></i><span class="text-gradient">ENOT</span> : <br> -->
+                <font color="#ff6a00">E</font>xpectile Regularization for Fast and Accurate Training<br>
+                of <font color="#ff6a00">N</font>eural <font color="#ff6a00">O</font>ptimal
+                <font color="#ff6a00">T</font>ransport<br>
+                <div class="paper-journal" style="color: #005A60">
+                    <b>NeurIPS 2024 Spotlight</b>
+                </div>
+            </h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <custom-li class="list-inline">
+                    <li>
+                        <b>Nazar Buzun</b><span style="font-size: 18px;">*</span><br>AIRI
+                    </li>
+                    <li>
+                        <b>Maksim Bobrin</b><span style="font-size: 18px;">*</span><br>Skoltech, AIRI
+                    </li>
+                    <li>
+                        <b>Dmitry Dylov</b><br>Skoltech, AIRI
+                    </li>
+                </custom-li>
+                <span class="eql-cntrb"><br><span style="font-size: 18px;">*</span>Indicates Equal Contribution</span>
+            </div>
+        </div>
+
+        <!-- <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-center">
+            <ul class="list-inline">
+                <li>
+                    <a href="https://arxiv.org/abs/2403.03777"><h4 class="15"><b>Paper</b></h4></a>
+                </li>
+            </ul>
+        </div>
+    </div> -->
+        <div class="column has-text-centered">
+            <!-- Arxiv PDF link -->
+            <!-- <span class="link-block">
+           <a href="https://openreview.net/forum?id=ymjI8feDTD" target="_blank"
+           class="external-link button is-normal is-rounded is-dark">
+           <span class="icon">
+             <i class="fas fa-file-pdf"></i>
+           </span>
+           <span>NeurIPS'25 OpenReview</span>
+         </a>
+       </span> -->
+            <!-- PDF Link. -->
+            <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.03777" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                </a>
+                <!-- Code Link. -->
+                <span class="link-block">
+                    <a href="https://ott-jax.readthedocs.io/en/latest/tutorials/neural/300_ENOT.html"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="fa-brands fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                    </a>
+                </span>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+            <h2>TL;DR</h2>
+        </div>
+
+        <div class="block-takeaway content">
+            <p style="font-size: 20px;">
+                By introducing new expectile regularization on conjugate potential in the Neural Optimal Transport (NOT)
+                optimization process, our new method, <font color="#ff6a00">ENOT</font>, outperforms both existing NOT
+                solvers and GANs in different generative tasksm, while also being up to 10 times faster. Our method is integrated into popular OTT-JAX library and whole implementation consists of just single file.
+            </p>
+        </div>
+
+        <section class="section hero is-light">
+            <h2 class="title is-3 has-text-centered">Abstract</h2>
+            <div class="content has-text-justified">
+                <p style="font-size: 20px">
+                    We present a new approach for Neural Optimal Transport (NOT) training procedure, capable of
+                    accurately and efficiently estimating optimal transportation plan via specific regularization on
+                    dual Kantorovich potentials. The main bottleneck of existing NOT solvers is associated with the
+                    procedure of finding a near-exact approximation of the conjugate operator (i.e., the c-transform),
+                    which is done either by optimizing over non-convex max-min objectives or by the computationally
+                    intensive fine-tuning of the initial approximated prediction. We resolve both issues by proposing a
+                    new, theoretically justified loss in the form of expectile regularisation which enforces binding
+                    conditions on the learning process of dual potentials. Such a regularization provides the upper
+                    bound estimation over the distribution of possible conjugate potentials and makes the learning
+                    stable, completely eliminating the need for additional extensive fine-tuning. Proposed method,
+                    called Expectile-Regularised Neural Optimal Transport (ENOT), outperforms previous state-of-the-art
+                    approaches on the established Wasserstein-2 benchmark tasks by a large margin (up to a 3-fold
+                    improvement in quality and up to a 10-fold improvement in runtime). Moreover, we showcase
+                    performance of ENOT for varying cost functions on different tasks such as image generation, showing
+                    robustness of proposed algorithm.
+                </p>
+            </div>
+        </section>
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+                <h2 class="has-text-centered" stlyle="color:black">
+                    <!-- <h2 style="color:rgba(74, 77, 163, 0.797)"> -->
+                    Generation from ShapeNet Planes
+                </h2>
+            </div>
+            <div class="cold-md-12">
+                <br>
+                <span class="text-center text-caption top5" style='font-size:35px;'>
+                    \(T_{\#} \mu \)
+                </span>
+                <div class="cold-md-12">
+                    <p>
+                        <img src="images/planes_no_noise.png" style="width: 100%;">
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-12" style="font-size: 20px;">
+                <ul>
+                    <li>
+                        Examples of plane generations from ShapeNet. Given source distribution \(\mu\) (standard
+                        Gaussian) and the goal is to pushforward \(T_{\#} \mu \) towards target by finding optimal
+                        transport plan \(T\).
+
+                    </li>
+                    <li>
+                        We compare ENOT with following algorithms: <b><a href="https://arxiv.org/abs/2302.00482">Optimal
+                                Transport Flow-Matching (OT-CFM)</a>,
+                            <a href="https://arxiv.org/abs/2210.12153">W2-OT</a>, <a
+                                href="https://arxiv.org/abs/2205.15269">Kernel OT </a></b>
+                    </li>
+                    <li>
+                        ENOT obtains best sample <b>quality</b> amongst baselines while also being up \(\times
+                        3\text{-}10\) <b>faster</b>. Moreover, number of iterations upon convergence is significantly
+                        smaller.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <div class="col-md-12">
+                        <p>
+                            <video class="center-block" width="100%" autoplay="" loop="" muted="" controls="" playsinline="">
+                                <source src="images/depth.mp4" type="video/mp4">
+                            </video>
+                        </p>
+                    </div>
+                    <h3 class="text-center top5 bottom5">
+                        Target
+                    </h3>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="col-md-12">
+                        <p>
+                            <video class="center-block" width="100%" autoplay="" loop="" muted="" controls="" playsinline="">
+                                <source src="images/depth.mp4" type="video/mp4">
+                            </video>
+                        </p>
+                    </div>
+                    <h3 class="text-center top5 bottom5">
+                        ENOT
+                    </h3>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-12">
+                        <p>
+                            <video class="center-block" width="100%" autoplay="" loop="" muted="" controls="" playsinline="">
+                                <source src="images/car_kernel_ot.mp4" type="video/mp4">
+                            </video>
+                        </p>
+                    </div>
+                    <h3 class="text-center top5 bottom5">
+                        KernelOT
+                    </h3>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-4 col-md-4 col-md-offset-2">
+                    <div class="col-md-12">
+                        <p>
+                            <video class="center-block" width="100%" autoplay="" loop="" muted="" controls="" playsinline="">
+                                <source src="images/depth.mp4" type="video/mp4">
+                            </video>
+                        </p>
+                    </div>
+                    <h3 class="text-center top5 bottom5">
+                        OT-FM
+                    </h3>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="col-md-12">
+                        <p>
+                            <video class="center-block" width="100%" autoplay="" loop="" muted="" controls="" playsinline="">
+                                <source src="images/depth.mp4" type="video/mp4">
+                            </video>
+                        </p>
+                    </div>
+                    <h3 class="text-center top5 bottom5">
+                        W2-OTbvvbn
+                    </h3>
+                </div>
+            </div>
+    </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+                <h2 class="title is-3 has-text-centered" stlyle="color:black">
+                    Expectile Regularization
+                </h2>
+            </div>
+            <div class="col-md-13">
+                <br>
+                <div class="col-md-6 col-md-offset-0">
+                    <div class="col-md-16">
+                        <p>
+                            <img src="images/expectile_est.svg" style="margin-left: auto; margin-right: auto;">
+                        </p>
+                    </div>
+                    <!-- <span class="text-center text-caption top5 bottom5">
+                    Global view
+                </span> -->
+                </div>
+                <div class="cold-md-4">
+                    <div class="cold-md-11">
+                        <p>
+                            <img src="images/expectile_loss.svg" style="margin-left: auto; margin-right: auto;">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 has-text-justified" style="padding-left: 50px; padding-right: 30px;font-size: 20px;">
+                <br>
+                Expectiles are another way to capture statistics of some random variable \(X\). More formally, expectile \(\tau \in (0, 1)\) of r.v \(X\) is a solution to the assymetric least squares problem, defined as:
+                $$
+                    \begin{aligned}
+                    \arg \min _{m_{\tau}} \{\mathbb{E}\left[\mathcal{L}^{\tau}_2 (x - m_{\tau})\right]\} \\ 
+                    \mathcal{L}^{\tau}_2 (u) = |\tau - \mathbb{1}(u < 0)|u^2
+                    \end{aligned}
+                $$
+                Intuitively, for low-valued expectiles, the model is penalized more for underestimation, while for large values - for overestimation, as shown on the right graph. <br>
+                By penalizing overly optimistic conjugate Kantorovich potential during optimization, expectile regularization enforces "closeness" between true conjugate and approximated by neural network.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+                <h2 class="title is-3 has-text-centered" style="color:black">Experiments (Image-to-Image)</h2>
+                <!-- <h2 style="color:rgba(74, 77, 163, 0.797)">Experiments (Image-to-Image)</h2> -->
+                <div class="col-md-12">
+                    <br>
+                    <div class="col-md-12">
+                        <p>
+                            <img src="images/table_gans.png"
+                                style="width: 100%; display: block; margin-left: auto; margin-right: auto;">
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12" style="font-size: 20px;">
+                    <ul>
+                        <li>
+                            Comparison of ENOT to baseline methods for Image-to-Image translation. We compare ENOT
+                            against <b>1)</b> GAN based approaches: <a
+                                href="https://arxiv.org/pdf/1703.10593">CycleGAN</a> and <a
+                                href="https://arxiv.org/abs/1711.09020">StarGAN</a> and <b>2)</b> Recent Neural OT
+                            approaches: <a href="https://arxiv.org/abs/2301.12874">ExtremalOT</a> and <a
+                                href="https://arxiv.org/abs/2205.15269">KernelOT</a>. We compare resulting images based
+                            on Frechet Inception Distance (FID) and Mean Squared Error (MSE). Empty cells indicate that
+                            original authors of particular method did not include results for those tasks.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <class div="row">
+                <div class="col-md-12">
+                    <div class="col-md-10 col-md-offset-1">
+                        <p>
+                            <img src="images/COMICS_NEW.png" style="width: 100%;">
+                        </p>
+                    </div>
+                    <div class="col-md-12" style="font-size: 20px;">
+                        <ul>
+                            <li>
+                                Image sizes are 128x128, the 1st row contains the source images, the 2nd row contains
+                                predicted
+                                generative mapping by ENOT; Cost function: \(\mathcal{L}^2\) divided by the image size.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <h2 class="title">
+                    BibTeX
+                </h2>
+                <code>
+        <pre>
+                @article{buzun2024enotexpectileregularizationfast,
+                    title={ENOT: Expectile Regularization for Fast and Accurate Training of Neural Optimal Transport},
+                    author={Nazar Buzun and Maksim Bobrin and Dmitry V. Dylov},
+                    journal={Advances in Neural Information Processing Systems},
+                    <!-- volume={36},
+                    pages={53038--53075}, -->
+                    year={2024}
+                }
+        </pre>
+    </code>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <hr>
+                    <p class="text-justify">
+                        The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and <a
+                            href="https://jonbarron.info/">Jon Barron</a>.
+                    </p>
+                </div>
+            </div>
+            <script>
+                if (navigator.userAgent.match(/Android/i)
+                    || navigator.userAgent.match(/webOS/i)
+                    || navigator.userAgent.match(/iPhone/i)
+                    || navigator.userAgent.match(/iPad/i)
+                    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+                    || navigator.userAgent.match(/iPod/i)
+                    || navigator.userAgent.match(/BlackBerry/i)
+                    || navigator.userAgent.match(/Windows Phone/i)) {
+                    const cells = document.getElementsByTagName('video');
+                    for (const cell of cells) {
+                        cell.removeAttribute("controls");
+                    }
+                }
+            </script>
+        </div>
+</body>
+
+</html>

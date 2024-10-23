@@ -1,0 +1,250 @@
+body {
+  font-family: "Ariel";
+}
+.list-inline {
+  list-style: none;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+  padding-left: 0;
+}
+
+.list-inline > li {
+  display: inline-block;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+custom_li li:before {
+  content: '';
+  list-style: none;
+  display: inline-block;
+}
+
+.is-normal {
+  font-size: 1em;
+  padding: 0.5em 1em;
+}
+
+.is-rounded {
+  border-radius: 50%;
+}
+
+.is-dark {
+  background-color: #333;
+  color: #fff;
+}
+
+
+h2, h3, h4 {
+  font-size: 200;
+  font-weight: bold;
+  margin-top: 35px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h1 {
+  font-weight: bold;
+}
+.publication-title {
+  font-family: "Ariel";
+}
+
+.font-normal {
+  font-weight: normal;
+}
+
+.text-caption-small {
+  display: block;
+}
+
+.text-caption {
+  font-size: 24px;
+  display: block;
+}
+
+.text-equation {
+  font-size: 110%;
+}
+
+.text-myred {
+  color: #f54254;
+}
+
+.link-block a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.text-bottleneck {
+  color: #598be7;
+  font-weight: 700;
+}
+
+.footer .icon-link {
+  font-size: 25px;
+  color: #000;
+}
+
+.paper-journal {
+  font-size: 27px;
+  margin-top: 15px;
+  color: #7a6e6e;
+}
+pre,
+code {
+  margin-top: 0px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  text-align: left;
+  padding: 0px;
+}
+
+.has-text-centered {
+  text-align: center!important
+}
+.link-block a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.button.is-rounded {
+  border-radius: 290486px;
+  padding-left: calc(1em + .25em);
+  padding-right: calc(1em + .25em)
+}
+.text-task {
+  font-family: 'Source Code Pro', 'Lato', Verdana, Helvetica, sans-serif;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #dfd92de9, #ff6a00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.eql-cntrb { 
+  font-size: smaller;
+}
+
+.block-statement {
+  display: table;
+  font-weight: 700;
+  border: 2px solid #ac5f35;
+  background-color: #48c2ee;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li:before {
+  content: '';
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-size: 10px;
+
+  background-image: url("Arrow.png");
+  scale: 1.5;
+  background-repeat: no-repeat;
+
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.block-takeaway {
+  display: block;
+  border: 0px solid #ACDDF9;
+  background-color: #D5F5F1;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+@media screen and (min-width:992px) {
+  .vertical-align {
+    display: flex;
+    align-items: center;
+  }
+  .vertical-align-baseline {
+    display: flex;
+    align-items: baseline;
+  }
+  .mobile-only {
+    display: none;
+  }
+  .block-statement {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width:991px) {
+  .vertical-align {
+  }
+  .vertical-align-baseline {
+  }
+  .desktop-only {
+    display: none;
+  }
+  .text-equation {
+    font-size: 100%;
+  }
+}
+
+.top0 { margin-top:0px; }
+.top5 { margin-top:5px; }
+.top7 { margin-top:7px; }
+.top10 { margin-top:10px; }
+.top15 { margin-top:15px; }
+.top17 { margin-top:17px; }
+.top20 { margin-top:20px; }
+.top30 { margin-top:30px; }
+
+.bottom0 { margin-bottom:0px; }
+.bottom5 { margin-bottom:5px; }
+.bottom7 { margin-bottom:7px; }
+.bottom10 { margin-bottom:10px; }
+.bottom15 { margin-bottom:15px; }
+.bottom17 { margin-bottom:17px; }
+.bottom20 { margin-bottom:20px; }
+.bottom30 { margin-bottom:30px; }
+
+@media screen and (min-width:992px) {
+  body, td, th, tr, p, a {
+    font-family: 'Source Sans Pro', 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width:991px) {
+  body, td, th, tr, p, a {
+    font-family: 'Source Sans Pro', 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+}
+
+strong {
+  font-weight: 700;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+
+mjx-container[display="true"] {
+  margin: 10px 0 !important
+}
