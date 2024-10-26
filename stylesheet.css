@@ -11,9 +11,6 @@ a:hover {
     text-decoration: none;
 }
 
-.page {display: inline-block; width: 95px; height: 120px; border: 2px solid #bbb; margin: 2px; background-repeat: no-repeat; background-position: center; background-size: contain;}
-
-
 body {
     font-family: 'Source Sans Pro', 'Lato', Verdana, Helvetica, sans-serif;
     font-size: 15px;
