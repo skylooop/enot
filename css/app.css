@@ -172,7 +172,7 @@ ul li:before {
 
 .block-takeaway {
   display: block;
-  border: 0px solid #ACDDF9;
+  border: 1px solid #ACDDF9;
   background-color: #D5F5F1;
   border-radius: 10px;
   padding: 10px;
