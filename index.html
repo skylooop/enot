@@ -245,6 +245,50 @@
                 <img src="images/main_diag.png" style="width: 100%;">
             </p>
         </div>
+        <div class="col-md-12 has-text-justified" style="padding-left: 50px; padding-right: 30px;font-size: 20px;">
+            <br>
+                Primal optimal transport is formulated as a solution to the Monge problem (MP) between measures \(\alpha\) and \(\beta\) and stated as:
+                $$
+                    \begin{aligned}
+                        \text{MP}(\alpha, \beta) = \inf_{T : \, T_\#\alpha =\beta}\int _\mathcal{X} c(x, T(x))\text{d}\alpha(x),
+                    \end{aligned}
+                $$
+            However, for computational reasons, it is easier to solve dual problem, called Kantorovich problem (KP):
+                $$
+                    \begin{aligned}
+                        \text{KP}(\alpha, \beta) = \sup_{(f, g) \in L_1(\alpha) \times L_1(\beta)} \Bigr[\mathbb{E}_{\alpha} [f(x)] + \mathbb{E}_{\beta} [g(y)]\Bigr] + \inf_{\pi, \gamma > 0} \gamma \, \mathbb{E}_{\pi} [c(x, y) - f(x) - g(y)], 
+                    \end{aligned}
+                $$
+            Which is equivalent to:
+                $$
+                \begin{aligned}
+                \text{KP}(\alpha, \beta) &= \sup_{g \in L_1(\beta)} \Bigr[\mathbb{E}_{\alpha} [g^c(x)] +   
+                \mathbb{E}_{\beta} [g (y)]\Bigr] \\
+                &= \sup_{g \in L_1(\beta)} \inf_{T: \, \mathcal{X} \to \mathcal{Y}} \Bigr[\mathbb{E}_{\alpha}[ c(x, T(x)) ]  +   \mathbb{E}_{\beta} [g (y)] - \mathbb{E}_{\alpha} [g(T(x)) ]\Bigr].
+                \end{aligned}
+                $$
+            The main computational burden lies in inner optimization problem over conjugate functions. Existing approaches either try to find an exact solution (which is computationaly heavy) or find rough approximation (which leads to instabilities).
+            We propose to restrict set of possible conjugate functions by adding <i>expectile regularization</i> term \(\mathcal{R}_g\):
+                $$
+                    \mathbb{E}_{\alpha} [g^T(x)] +   
+                    \mathbb{E}_{\beta} [g (y)] - \mathbb{E}_{\alpha, \beta} [\mathcal{R}_g(x, y)].
+                $$
+            Despite its simplicity, overall objective has several useful properties:
+            <div class="col-md-12" style="font-size: 20px;">
+                <ul>
+                    <li>
+                        At each training step, approximated c-transform is not exact. However, at the end of training, it is exact.
+                    </li>
+                    <li>
+                        Obtained objective is simple and stable.
+                    </li>
+                     <li>
+                        There is no additional fine-tuning at each step, making whole procedure fast.
+                     </li>
+                </ul>
+            </div>
+        </div>
+    </div> 
     </div>
         <div class="row">
             <div class="col-md-12">
