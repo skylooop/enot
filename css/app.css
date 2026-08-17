@@ -310,6 +310,59 @@ img {
   margin: 0 auto;
 }
 
+.research-figure {
+  width: 100%;
+  max-width: 980px;
+}
+
+.research-figure-wide {
+  max-width: 1040px;
+}
+
+.car-comparison-grid {
+  margin-top: 12px;
+}
+
+.car-comparison-item {
+  margin-bottom: 18px;
+  padding-right: 18px;
+  padding-left: 18px;
+}
+
+.car-comparison-card {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 10px 12px 8px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.car-comparison-card.is-featured {
+  border-color: rgba(255, 106, 0, 0.45);
+  background: rgba(255, 106, 0, 0.035);
+  box-shadow: 0 8px 24px rgba(46, 54, 68, 0.08);
+}
+
+.car-video-frame {
+  width: 100%;
+  max-width: 264px;
+  margin: 0 auto;
+}
+
+.car-video-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.car-comparison-card h3 {
+  margin: 5px 0 0;
+  line-height: 1.25;
+}
+
 .expectile-figures img {
   width: 100%;
   max-height: 440px;
@@ -346,5 +399,22 @@ mjx-container[display="true"] {
 
   .publication-links {
     margin-top: 16px;
+  }
+
+  .car-comparison-grid {
+    margin-top: 8px;
+  }
+
+  .car-comparison-item {
+    margin-bottom: 12px;
+  }
+
+  .car-comparison-card {
+    max-width: 276px;
+    padding: 8px 10px 7px;
+  }
+
+  .car-video-frame {
+    max-width: 244px;
   }
 }
