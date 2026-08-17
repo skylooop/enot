@@ -39,7 +39,9 @@
 
 
 h2, h3, h4 {
+  font-family: var(--font-display);
   font-weight: bold;
+  letter-spacing: -0.025em;
   margin-top: 35px;
 }
 
@@ -56,10 +58,12 @@ h4 {
 }
 
 h1 {
+  font-family: var(--font-display);
   font-weight: bold;
+  letter-spacing: -0.03em;
 }
 .publication-title {
-  font-family: 'Source Sans Pro', 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: var(--font-display);
 }
 
 .font-normal {
@@ -96,6 +100,9 @@ h1 {
   align-items: center;
   gap: 7px;
   margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
   transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
@@ -146,12 +153,14 @@ h1 {
   border-radius: 999px;
   background: #f3d5bb;
   color: #74401f;
+  font-family: var(--font-display);
   font-size: 25px;
   line-height: 1.2;
   box-shadow: 0 2px 7px rgb(116 64 31 / 12%);
 }
 pre,
 code {
+  font-family: var(--font-mono);
   margin-top: 0px;
   font-size: 13px;
   margin-bottom: 10px;
@@ -179,7 +188,7 @@ pre {
   padding-right: calc(1em + .25em)
 }
 .text-task {
-  font-family: 'Source Code Pro', 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: var(--font-mono);
 }
 
 .text-gradient {
@@ -279,13 +288,13 @@ ul li:before {
 
 @media screen and (min-width:992px) {
   body, td, th, tr, p, a {
-    font-family: 'Source Sans Pro', 'Lato', Verdana, Helvetica, sans-serif;
+    font-family: var(--font-body);
     font-size: 18px;
   }
 }
 @media screen and (max-width:991px) {
   body, td, th, tr, p, a {
-    font-family: 'Source Sans Pro', 'Lato', Verdana, Helvetica, sans-serif;
+    font-family: var(--font-body);
     font-size: 16px;
   }
 }
