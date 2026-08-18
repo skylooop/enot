@@ -121,7 +121,22 @@ h1 {
 }
 
 .author-list {
-  margin-bottom: 4px;
+  width: 100%;
+  max-width: 1120px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(16px, 3vw, 40px);
+  margin: 0 auto 4px;
+  padding-left: 0;
+}
+
+.author-list > li {
+  min-width: 0;
+  display: block;
+  margin: 0;
+  padding: 0 8px;
+  text-align: center;
 }
 
 .author-list li::before {
@@ -405,9 +420,15 @@ mjx-container[display="true"] {
     font-size: 20px;
   }
 
+  .author-list {
+    max-width: 420px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
   .author-list > li {
-    display: block;
-    margin: 0 0 12px;
+    margin: 0;
+    padding: 0;
   }
 
   .publication-links {
